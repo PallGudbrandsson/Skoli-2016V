@@ -26,6 +26,9 @@ namespace Vekrefni_1
                 Console.WriteLine("6. 7 tolur");
                 Console.WriteLine("7. Craps");
                 Console.WriteLine("8. Haetta");
+                Console.WriteLine("Meira:");
+                Console.WriteLine("9. Heiltolu fylki");
+                Console.WriteLine("10.Einkunnir");
                 val = Convert.ToInt32(Console.ReadLine());
 
                 switch (val)
@@ -182,11 +185,118 @@ namespace Vekrefni_1
                         break;
                     case 7:
                         {
+                            int afram = 0, kast1 = 0, kast2 = 0, summa = 0, nr_kasts = 0, fyrsta_kast = 0, stig = 0;
+                            Random rand = new Random();
+                            do
+                            {
+                                //Console.Clear();
 
+                                Console.WriteLine("Veldu 1 til ad spila og 0 til ad haetta");
+                                afram = Convert.ToInt32(Console.ReadLine());
+                                nr_kasts = 0;
+                                do
+                                {
+                                    kast1 = rand.Next(1, 7);
+                                    kast2 = rand.Next(1, 7);
+
+                                    summa = kast1 + kast2;
+                                    if (nr_kasts == 0)
+                                    {
+                                        fyrsta_kast = summa;
+                                    }
+
+                                    if (summa == 7 || summa == 11)
+                                    {
+                                        Console.WriteLine("thu vannst eftir " + nr_kasts + " kost");
+                                        break;
+                                    }
+                                    else if (summa == 2 || summa == 3 || summa == 12)
+                                    {
+                                        Console.WriteLine("Thu tapar eftir " + nr_kasts + " kost " + " med " + summa + " stig");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if (summa == fyrsta_kast)
+                                        {
+                                            if (nr_kasts != 0)
+                                            {
+                                                Console.WriteLine("thu vannst thar sem thu fekkst sama fjolda stiga og i fyrsta kasti eftir " + nr_kasts + " kost");
+                                                break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("thu fekkst " + summa + " Stig. I kasti " + nr_kasts);
+
+                                            stig = summa;
+                                        }
+                                    }
+
+                                    nr_kasts++;
+                                } while (nr_kasts != 7);
+                                Console.ReadLine();
+                            } while (afram != 0);
                         }
                         break;
-                    case 8:
+                    case 8://notandi aetlar ad haetta
                         {}
+                        break;
+                    case 9:
+                        {
+                            int staerd = 0;
+                            Random rand = new Random();
+
+                            Console.WriteLine("Sladu inn staerd fylkis sem mun fyllast af random tolum milli 1 og 100");
+                            staerd = Convert.ToInt32(Console.ReadLine());
+
+                            int[] fylki = new int[staerd];
+
+                            for (int i = 0; i < fylki.Length; i++)
+                            {
+                                fylki[i] = rand.Next(1, 101);
+                            }
+                            Console.WriteLine("Staersta stak = " + fylki.Max());
+                            Console.WriteLine("Medaltal = " + fylki.Average());
+                            Console.WriteLine("Summa = " + fylki.Sum());
+                            Console.WriteLine("Allt fylkid:");
+                            for (int i = 0; i < fylki.Length; i++)
+                            {
+                                if (i == (fylki.Length-1))
+                                {
+                                    Console.Write(fylki[i]);
+                                }
+                                else
+                                {
+                                    Console.Write(fylki[i] + ", ");
+                                }
+                            }
+                        }
+                        break;
+                    case 10:
+                        {
+                            Random rand = new Random();
+                            int[] fylki = new int[6];
+                            int sjo = 0;
+
+                            for (int i = 0; i < fylki.Length; i++)
+                            {
+                                Console.WriteLine("Sladu inn einkunn " + (i + 1));
+                                fylki[i] = Convert.ToInt32(Console.ReadLine());
+                            }
+                            for (int i = 0; i < fylki.Length; i++)
+                            {
+                                if (fylki[i] == 7)
+                                {
+                                    sjo++;
+                                }
+                                else if (fylki[i] <= 5)
+                                {
+                                    Console.WriteLine("nemandi " + (i + 1) + " fekk 5 eda undir med " + fylki[i]);
+                                }
+                            }
+                            Console.WriteLine("fjoldi nemanda med 7 var " + sjo);
+                        }
                         break;
                     default:
                         {
