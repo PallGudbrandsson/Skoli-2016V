@@ -4,3 +4,5 @@ I:\Skóli\Forritun 2C\Upphitun\Vekrefni 1\Vekrefni 1\bin\Debug\Vekrefni 1.pdb
 I:\Skóli\Forritun 2C\Upphitun\Vekrefni 1\Vekrefni 1\obj\Debug\Vekrefni 1.csprojResolveAssemblyReference.cache
 I:\Skóli\Forritun 2C\Upphitun\Vekrefni 1\Vekrefni 1\obj\Debug\Vekrefni 1.exe
 I:\Skóli\Forritun 2C\Upphitun\Vekrefni 1\Vekrefni 1\obj\Debug\Vekrefni 1.pdb
+C:\Users\Páll\Documents\GitHub\Skoli-2016V\Forritun 2C\Upphitun\Vekrefni 1\Vekrefni 1\bin\Debug\Vekrefni 1.exe.config
+C:\Users\Páll\Documents\GitHub\Skoli-2016V\Forritun 2C\Upphitun\Vekrefni 1\Vekrefni 1\obj\Debug\Vekrefni 1.exe
