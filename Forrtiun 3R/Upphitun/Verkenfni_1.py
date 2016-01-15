@@ -22,12 +22,31 @@ while sum != 4000000:
 	last2 = sum
 
 #verkefni 3
-'''
 lausn = 0
 for x in range(1,600851475143):
 	if x % 600851475143 == 0:
 		lausn = x
 print lausn
-'''
+
+#verkefni 4
+tala = 0
+lengd = 0
+talas = "strengur"
+fyrri = ""
+seinni = ""
+lausn = ""
+for x in xrange(99,1000):
+	for a in xrange(99,1000):
+		tala = a*x
+		talas = str(tala)
+		if talas == talas[::-1]:
+			lausn = talas
+print talas
+			
 
 
+
+for x in xrange(1,1000000):
+	y = 1+1
+print x
+		
