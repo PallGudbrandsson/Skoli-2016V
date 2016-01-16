@@ -9,17 +9,8 @@ print sum
 
 #verkefni 2
 sum = 1
-print str(sum + ", ")
-last1 = 2
-print str(last1 + ", ")
-last2 = 3
-print str(last2 + ", ")
-
-while sum != 4000000:
-	sum = last2 +last1
-	print str(sum + ", ")
-	last1 = last2
-	last2 = sum
+while sum :
+	pass
 
 #verkefni 3
 lausn = 0
@@ -31,17 +22,13 @@ print lausn
 #verkefni 4
 tala = 0
 lengd = 0
-talas = "strengur"
-fyrri = ""
-seinni = ""
 lausn = ""
 for x in xrange(99,1000):
 	for a in xrange(99,1000):
 		tala = a*x
-		talas = str(tala)
-		if talas == talas[::-1]:
-			lausn = talas
-print talas
+		if tala == tala[::-1]:
+			lausn = tala
+print str(tala)
 			
 
 
