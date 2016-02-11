@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS school(
-	id int(4),
+	id int(4) AUTO_INCREMENT,
 	name varchar(255),
 	CONSTRAINT school_PK PRIMARY KEY (id)
 );
 CREATE TABLE IF NOT EXISTS student(
-	id int(6),
+	id int(6) AUTO_INCREMENT,
 	firstn varchar(255),
-	lasntn varchar(255),
+	lastn varchar(255),
 	birthday date,
 	start_date date,
 	end_date date,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS student(
 	CONSTRAINT student_PK PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS time(
-	id int(6),
+	id int(6) AUTO_INCREMENT,
 	day varchar(3),
 	time_start time,
 	time_end time,
@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS roles(
 	CONSTRAINT roles_pk PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS teacher(
-	id int(6),
+	id int(6) AUTO_INCREMENT,
 	firstn varchar(255),
-	lasntn varchar(255),
+	lastn varchar(255),
 	short char(3),
 	email varchar(255),
 	school_id int(4),
@@ -43,30 +43,24 @@ CREATE TABLE IF NOT EXISTS teacher_degree(
 	CONSTRAINT degree_ref_teacher FOREIGN KEY (teacher_id) REFERENCES teacher(id)
 );
 CREATE TABLE IF NOT EXISTS cource(
-	id int(5),
-	name varchar(255),
-	CONSTRAINT cource_PK PRIMARY KEY(id)
-);
-CREATE TABLE IF NOT EXISTS cources(
-	id int(5),
-	name varchar(255),
-	level int(2),
-	cource_id int(5),
-	CONSTRAINT cources_PK PRIMARY KEY (id),
-	CONSTRAINT cources_ref_cource FOREIGN KEY (cource_id) REFERENCES cource(id)
+	id int(11) AUTO_INCREMENT,
+	nr varchar(255),
+	name varchar(75),
+	school_id int(4),
+	semester varchar(5),
+	units int(11),
+	CONSTRAINT cource_PK PRIMARY KEY(id),
+	CONSTRAINT cource_ref_school FOREIGN KEY (school_id) REFERENCES school(id)
 );
 CREATE TABLE IF NOT EXISTS class(
-	id int(5),
+	id int(5) AUTO_INCREMENT,
 	name varchar(75),
-	cource_id int(5),
-	school_id int(4),
+	cource_id varchar(255),
 	semester char(5),
-	CONSTRAINT class_PK PRIMARY KEY (id),
-	CONSTRAINT class_ref_school FOREIGN KEY (school_id) REFERENCES school(id),
-	CONSTRAINT class_ref_cource FOREIGN KEY (cource_id) REFERENCES cources(id)
+	CONSTRAINT class_PK PRIMARY KEY (id)
 );
 CREATE TABLE IF NOT EXISTS class_time_log(
-	id int(5),
+	id int(5) AUTO_INCREMENT,
 	class_id int(5),
 	time_id int(6),
 	CONSTRAINT time_log_PK PRIMARY KEY (id),
@@ -83,7 +77,7 @@ CREATE TABLE IF NOT EXISTS teaching(
 	CONSTRAINT teaching_ref_role FOREIGN KEY (role) REFERENCES roles(id)
 );
 CREATE TABLE IF NOT EXISTS assignment(
-	id int(11),
+	id int(11) AUTO_INCREMENT,
 	class_id int(6),
 	due datetime,
 	teacher_id int(5),
@@ -92,7 +86,7 @@ CREATE TABLE IF NOT EXISTS assignment(
 	CONSTRAINT assignment_ref_teacher FOREIGN KEY (teacher_id) REFERENCES teacher(id)
 );
 CREATE TABLE IF NOT EXISTS assignment_submit(
-	id int(15),
+	id int(15) AUTO_INCREMENT,
 	assignment_id int(15),
 	student_id int(5),
 	description longtext,
@@ -102,7 +96,7 @@ CREATE TABLE IF NOT EXISTS assignment_submit(
 	CONSTRAINT assignment_submit_ref_assignment FOREIGN KEY (assignment_id) REFERENCES assignment(id)
 );
 CREATE TABLE IF NOT EXISTS student_in_class(
-	id int (8),
+	id int (8) AUTO_INCREMENT,
 	student_id int(6),
 	class_id int(5),
 	semester char(5),
