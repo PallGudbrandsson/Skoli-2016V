@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace exel_to_sql
 {
@@ -19,7 +20,7 @@ namespace exel_to_sql
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dbconn conn = new dbconn();
+            List<string> output = new List<string>();
             string inFromTextbox = null;
             string[] input;
             string[] splitInput;
@@ -32,18 +33,14 @@ namespace exel_to_sql
             {
                 splitInput = input[i].Split(' ');
 
-                try
-                {
-                    skipun = ("INSERT INTO class(name, cource, school_id, semester, units) VALUES ('" + splitInput[0] + "','" + splitInput[1] + "','" + splitInput[3] + "','2016H','" + splitInput[2] + "');");
-                    conn.insert(skipun);
-                }
-                catch (Exception)
-                {
-                    
-                    MessageBox.Show(skipun);
-                }
+                skipun = ("INSERT INTO class(name, cource, school_id, semester, units) VALUES ('" + splitInput[0] + "','" + splitInput[1] + "','" + splitInput[3] + "','2016H','" + splitInput[2] + "');");
+                output.Add(skipun);
             }
             richTextBox1.Text = null;
+            for (int i = 0; i < output.Count; i++)
+            {
+                richTextBox1.Text += output[i];
+            }
         }
     }
 }

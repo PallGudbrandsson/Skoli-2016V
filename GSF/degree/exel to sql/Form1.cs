@@ -34,7 +34,7 @@ namespace exel_to_sql
 
                 try
                 {
-                    skipun = ("INSERT INTO class(name, cource, school_id, semester, units) VALUES ('" + splitInput[0] + "','" + splitInput[1] + "','" + splitInput[3] + "','2016H','" + splitInput[2] + "');");
+                    skipun = ("INSERT INTO cource(nr, name, school_id, semester, units) VALUES ('" + splitInput[0] + "','" + splitInput[1] + "','" + splitInput[3] + "','2016H','" + splitInput[2] + "');");
                     conn.insert(skipun);
                 }
                 catch (Exception)
