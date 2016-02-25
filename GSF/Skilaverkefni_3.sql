@@ -21,9 +21,10 @@ end $$
 -- Skráið Embraer ERJ 145 flugvél í grunninn.  Info:  https://en.wikipedia.org/wiki/Embraer_ERJ_145_family
 drop procedure if exists NewAircraft $$
 
-create procedure newAircraft( /* Færibreytur hér */ )
+create procedure newAircraft(int id, varchar classConfig, date startOfService)
 begin
-    -- Kóði hér
+    INSERT INTO aircrafts (aircraftID, classConfiguration, serviceEntry,aircraftType)
+    VALUES (id, classConfig, startOfService, 1);
 end $$
 
 -- 3
@@ -31,9 +32,9 @@ end $$
 -- einkennisnnúmer(aircraftID) er sent sem færibreyta
 drop procedure if exists AircraftSeats $$
 
-create procedure AircraftSeats( /* Færibreytan hér */ )
+create procedure AircraftSeats( varchar id )
 begin
-    -- Kóði hér
+    SELECT * FROM seats WHERE aircraftID = id
 end $$
 
 -- 4
@@ -41,9 +42,9 @@ end $$
 -- gefa skal upp flugnúmer(flight number) og flugdag(flightDate)
 drop procedure if exists FlightBookingNumbers $$
 
-create procedure FlightBookingNumbers( /* Færibreytur hér */  )
+create procedure FlightBookingNumbers(int code)
 begin
-	-- Kóði hér
+	SELECT bookingNumber FROM booking WHERE flightCode = code 
 end $$
 
 -- 5
