@@ -50,7 +50,15 @@ end $$
 -- 5
 -- Skrifið Stored Procedure sem birtir flugáætlanir.
 -- Birtið flugnúmer,vikudag,brottfararstað(origin),áfangastað(destination)
+drop procedure if exists FlightPlans $$
 
+create procedure FlightPlans(int flight_number)
+begin
+	SELECT flightschedule.flightNumber, flightschedule.weekday, O.orgin, D.destination FROM flightschedule
+	INNER JOIN places O ON flightschedule.orgin = places.placeID
+	INNER JOIN places D ON flightschedule.destination = places.placeID
+	WHERE flightNumber = flight_number
+end $$
 
 -- 6
 -- Skrifið function sem sækir flugkóðann(flightCode) fyrir ákveðið flug á ákveðnum degi.
@@ -58,9 +66,10 @@ end $$
 -- ATH:Flugkóði er ekki það sama og flugNúmer heldur er um að ræða (frum)lykil að gögnum um flugið sjálft.
 drop function if exists getFlightCode $$
 create function getFlightCode(flight_number char(5),flight_date date)
-returns int
+returns char(6)
 begin
-
+SELECT flightCode FROM flights 
+WHERE flightNumber = flightNumber AND flightDate = flight_date
 end $$
 
 -- 7
@@ -71,7 +80,8 @@ drop function if exists getAircraftID $$
 create function getAircraftID(flight_number char(5),flight_date date)
 returns char(6)
 begin
-
+SELECT aircraftID FROM flights 
+WHERE flightNumber = flight_number AND flightDate = flight_date
 end $$
 
 -- 8
@@ -79,7 +89,15 @@ end $$
 -- Sendið flugnúmerið og flugdaginn inn sem færibreytur
 -- Notið concat() fallið til að birta sætin á forminu NúmerBókstafur ( t.d: 3A)
 -- ATH: Hér þarf líklega að nota fjórar töflur, Flights,Booking,Passengers,Seats
-
+drop procedure if exists PassengerInfo $$
+create procedure PassengerInfo(flight_number char(5), flight_date date)
+begin
+	SELECT Passengers.PassengerName, concat(seats.rowNumber, ':', seats.seatNumber) FROM flights
+	JOIN aircrafts ON flights.aircraftID = aircrafts.aircraftID
+	JOIN seats ON Aircrafts.aircraftID = Seats.aircraftID
+	JOIN Passengers ON Seats.seatID = Passengers.seatingID
+	WHERE Flights.flightNumber = flight_number AND flights.flightDate = cflight_date
+end
 
 -- 9
 -- Skrifið function,iceDate sem tekur inn dagsetningu(date) á SQL forminu 'ÁÁÁÁ-MM-DD'
