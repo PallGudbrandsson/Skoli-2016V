@@ -103,7 +103,9 @@ end
 -- Skrifið function,iceDate sem tekur inn dagsetningu(date) á SQL forminu 'ÁÁÁÁ-MM-DD'
 -- og skilar streng með íslenskri dagsetningu 'DD-MM-ÁÁÁÁ'.
 -- Hérna skuluð þið nota innbyggða fallið date_format til aðstoðar
-
+drop function if exists dateReverse $$
+create function dateReverse(flight_date date)
+begin
 
 -- 10
 -- eftirfarandi SQL kóði telur hversu oft hefur verið setið í ákveðnum sætum fyrir
