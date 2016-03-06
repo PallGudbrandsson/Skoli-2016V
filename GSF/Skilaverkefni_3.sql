@@ -1,8 +1,5 @@
 delimiter $$
--- 1
--- Skrifið Stored Procedure sem skilar upplýsingum um ákveðna bókun.
--- Sýna þarf eftirfarandi: flightNumber,bookingNumber,flightDate,cardholdersName
--- Notandinn sendir bókunarnúmerið(bookingNumber) sem færibreytu.
+
 drop procedure if exists BookingInfo $$
 
 create procedure BookingInfo(booking_number int)
@@ -14,11 +11,7 @@ begin
     WHERE booking.bookingNumber = booking_number
 end $$
 
--- 2
--- Skrifið Stored Procedure sem nýskráir flugvél í FreshAir gagnagrunninn.
--- Hafið í huga að upplýsingar um flugvélar eru í tveim töflum: Aircrafts og Aircrafttypes.
--- Upplýsingar um sæti í hverri flugvél eru svo geymdar í töflunni Seats en ekki þarf að skrá þau hér.
--- Skráið Embraer ERJ 145 flugvél í grunninn.  Info:  https://en.wikipedia.org/wiki/Embraer_ERJ_145_family
+delimiter $$
 drop procedure if exists NewAircraft $$
 
 create procedure newAircraft(int id, varchar classConfig, date startOfService)
@@ -96,16 +89,34 @@ begin
 	JOIN aircrafts ON flights.aircraftID = aircrafts.aircraftID
 	JOIN seats ON Aircrafts.aircraftID = Seats.aircraftID
 	JOIN Passengers ON Seats.seatID = Passengers.seatingID
-	WHERE Flights.flightNumber = flight_number AND flights.flightDate = cflight_date
+	WHERE Flights.flightNumber = flight_number AND flights.flightDate = flight_date
 end
 
 -- 9
 -- Skrifið function,iceDate sem tekur inn dagsetningu(date) á SQL forminu 'ÁÁÁÁ-MM-DD'
 -- og skilar streng með íslenskri dagsetningu 'DD-MM-ÁÁÁÁ'.
 -- Hérna skuluð þið nota innbyggða fallið date_format til aðstoðar
-drop function if exists dateReverse $$
-create function dateReverse(flight_date date)
+/*
+delimiter $$
+drop function if exists MaxPrice $$
+
+create function MaxPrice()
+returns int
 begin
+	return(select max(price) from Passengers);
+end $$
+delimiter ;
+*/
+delimiter $$
+drop function if exists iceDate $$
+create function iceDate(flight_date date)
+returns varchar(12)
+begin
+return (CONVERT(varchar(12), flight_date, 103))
+end $$
+delimiter ;
+
+
 
 -- 10
 -- eftirfarandi SQL kóði telur hversu oft hefur verið setið í ákveðnum sætum fyrir
@@ -116,4 +127,5 @@ begin
 --
 -- Skrifið Stored Procedure sem hjúpar þessa virkni en bætið við, þannig að sætið
 -- sé á forminu NúmerBókstafur t.d: 1A og að auðkenni flugvélarinnar komi líka pr. sæti.
--- Dæmi:  TF-HAL 1A 29 delimiter $$
+-- Dæmi:  TF-HAL 1A 29 
+delimiter $$
