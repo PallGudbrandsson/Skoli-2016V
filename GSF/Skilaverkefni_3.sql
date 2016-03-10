@@ -1,4 +1,3 @@
-
 delimiter $$
 
 drop procedure if exists BookingInfo $$
