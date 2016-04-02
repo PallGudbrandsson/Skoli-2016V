@@ -14,7 +14,7 @@ end $$
 --     í ákveðnu flugi. Notandinn skaffar flugnúmer og flugdag og þessi
 --     function kallar í getFlightCode úr skilaverkefni 3
 --     Þannig fáið þið flugkóðann sem þarf að nota til að klára verkið.
-
+	
 drop function if exists NumberOfPassengers $$
 create function NumberOfPassengers(flight_number char(5),flight_date date)
 returns int(6)

@@ -1,0 +1,116 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace E
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("1 2");
+            Console.WriteLine("2 4");
+            Console.WriteLine("3 8");
+            Console.WriteLine("4 11");
+            Console.WriteLine("5 22");
+            Console.WriteLine("6 55");
+            Console.WriteLine("7 121");
+            Console.WriteLine("8 252");
+            Console.WriteLine("9 505");
+            Console.WriteLine("10 1001");
+            Console.WriteLine("11 2002");
+            Console.WriteLine("12 4004");
+            Console.WriteLine("13 8118");
+            Console.WriteLine("14 16316");
+            Console.WriteLine("15 32723");
+            Console.WriteLine("16 65456");
+            Console.WriteLine("17 130031");
+            Console.WriteLine("18 261162");
+            Console.WriteLine("19 523325");
+            Console.WriteLine("20 1048401");
+            Console.WriteLine("21 2096902");
+            Console.WriteLine("22 4193914");
+            Console.WriteLine("23 8387838");
+            Console.WriteLine("24 16766761");
+            Console.WriteLine("25 3354453");
+            Console.WriteLine("26 67100176");
+            Console.WriteLine("27 134212431");
+            Console.WriteLine("28 26843486");
+            Console.WriteLine("29 536868635");
+            Console.WriteLine("30 1073447412");
+            Console.WriteLine("31 2147447412");
+            Console.WriteLine("32 4294884924");
+            Console.WriteLine("33 8489889848");
+            Console.WriteLine("34 17179797171");
+            Console.WriteLine("35 34359695343");
+            Console.WriteLine("36 687193991786");
+            Console.WriteLine("37 137438834731");
+            Console.WriteLine("38 274877778472");
+            Console.WriteLine("39 549755557945");
+            Console.WriteLine("40 1099511159901");
+            Console.WriteLine("41 2199023209912");
+            Console.WriteLine("42 4398046408934");
+            Console.WriteLine("43 849609206978");
+            Console.WriteLine("44 175927729571");
+            Console.WriteLine("45 351843348153");
+            Console.WriteLine("46 70368668307");
+            Console.WriteLine("47 140737484737041");
+            Console.WriteLine("48 2814749474182");
+            Console.WriteLine("49 562949949949265");
+            Console.WriteLine("50 112589989985211");
+            Console.WriteLine("51 225179979971522");
+            Console.WriteLine("52 450359959953054");
+            Console.WriteLine("53 900719919917009");
+            Console.WriteLine("54 18014398489341081");
+            Console.WriteLine("55 36028796969782063");
+            Console.WriteLine("56 72057593939575027");
+            Console.WriteLine("57 144115187781511441");
+            Console.WriteLine("58 288230375573032882");
+            Console.WriteLine("59 576460752257064675");
+            Console.WriteLine("60 1152921504051292511");
+            Console.WriteLine("61 2305843009003485032");
+            Console.WriteLine("62 4611686018106861164");
+            Console.WriteLine("63 9223372036302733229");
+            Console.WriteLine("64 18446744066044764481");
+            Console.WriteLine("65 36893488144188439863");
+            Console.WriteLine("66 73786976288267968737");
+            Console.WriteLine("67 147573952585259375741");
+            Console.WriteLine("68 295147905171509741592");
+            Console.WriteLine("69 590295810353018592095");
+            Console.WriteLine("70 1180591020600201950811");
+            Console.WriteLine("71 2301183241331423811032");
+            Console.WriteLine("72 4722360482772846632274");
+            Console.WriteLine("73 94447329654665692374449");
+            Console.WriteLine("74 188894659314395649888");
+            Console.WriteLine("75 377784380292683487773");
+            Console.WriteLine("76 75557863725852736875557");
+            Console.WriteLine("77 15111572745115472751115");
+            Console.WriteLine("78 302231454903309454132203");
+            Console.WriteLine("79 604462909806608909264406");
+            Console.WriteLine("80 12089258196144169185298021");
+            Console.WriteLine("81 2417851693922293961587142");
+            Console.WriteLine("82 4835703298457548723307584");
+            Console.WriteLine("83 9671406556916196556041769");
+            Console.WriteLine("84 19342813113833831131824391");
+            Console.WriteLine("85 3868562622667766226258683");
+            Console.WriteLine("86 773712524553355424519377");
+            Console.WriteLine("87 154742504910626019405247451");
+            Console.WriteLine("88 30948500982134343128900584903");
+            Console.WriteLine("89 61897001964269624691007916");
+            Console.WriteLine("90 123794003928533529300497321");
+            Console.WriteLine("91 24758800785707670758700885742");
+            Console.WriteLine("92 4951760157141441417510671594");
+            Console.WriteLine("93 9903520314283003824130253099");
+            Console.WriteLine("94 19877040628566066582604077891");
+            Console.WriteLine("95 39014081257132123175218041093");
+            Console.WriteLine("96 79228162514264246241526182297");
+            Console.WriteLine("97 158456325028527725820523654851");
+            Console.WriteLine("98 316912656057056650750656219613");
+            Console.WriteLine("99 6338253001141001411003528336");
+            Console.WriteLine("100 1267650600228229228220060567621");
+            Console.ReadLine();
+        }
+    }
+}
