@@ -11,6 +11,21 @@ namespace ClassLibrary1
         private bool sykurlaus;
         private string bokunarStadur;
 
+        public bool Sykurlaus
+        {
+            get
+            {
+                return sykurlaus;
+            }
+        }
+        public string BokunarStadur
+        {
+            get
+            {
+                return bokunarStadur;
+            }
+        }
+
         public bakkelsi (bool s, string b, int v, int m, string n)
             : base(v, m, n)
         {
