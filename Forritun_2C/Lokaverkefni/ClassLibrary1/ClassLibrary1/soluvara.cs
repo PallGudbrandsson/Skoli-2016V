@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class soluvara
+    public class soluvara : Iinit
     {
         private int verd;
         private int magn;
@@ -17,6 +17,12 @@ namespace ClassLibrary1
             Verd = v;
             Magn = m;
             nafn = n;
+        }
+
+        public void init()
+        {
+            Random rand = new Random();
+            magn = rand.Next(1, 50);
         }
 
         public int Verd

@@ -12,6 +12,13 @@ namespace ClassLibrary1
         private bool sykurlaus;
         private int staerdml;
 
+        public drykkir(bool a, bool s, int st, int v, int m, string n)
+            : base(v, m, n)
+        {
+            afengur = a;
+            sykurlaus = s;
+            staerdml = st;
+        }
 
         public bool Afengur
         {
