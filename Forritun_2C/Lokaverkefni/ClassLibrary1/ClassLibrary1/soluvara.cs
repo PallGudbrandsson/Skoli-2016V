@@ -36,6 +36,13 @@ namespace ClassLibrary1
                 verd = value;
             }
         }
+        public string Nafn
+        {
+            get
+            {
+                return nafn;
+            }
+        }
         public int Magn
         {
             get
