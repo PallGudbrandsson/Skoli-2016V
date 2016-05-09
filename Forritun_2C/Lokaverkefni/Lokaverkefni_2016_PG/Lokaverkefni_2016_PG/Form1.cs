@@ -22,7 +22,7 @@ namespace Lokaverkefni_2016_PG
 
         public Form1()
         {
-            
+            //Skilgreini allar soluvorur
             InitializeComponent();
             snudur snKarmellu = new snudur("Karmella", false, null, 350, 0, "Snúður - Karmella");
             soluvara.Add(snKarmellu);
@@ -48,6 +48,7 @@ namespace Lokaverkefni_2016_PG
             soluvara.Add(hvitt);
             braud hvittSneid = new braud("Hvitt", true, 1, false, null, 110, 0, "Brauð - Hvítt sneið");
             soluvara.Add(hvittSneid);
+            //drykkir eru med otakmarkad magn
             drykkir kokomjolk250 = new drykkir(false, false, 250, 350, 2147483647, "Kókómjólk -  250ml");
             soluvara.Add(kokomjolk250);
             drykkir kokomjolk1l = new drykkir(false, false, 1000, 500, 2147483647, "Kókómjólk - 1l");
@@ -63,14 +64,15 @@ namespace Lokaverkefni_2016_PG
             slokkvaATokkum();
             
         }
-        public void slokkvaATokkum()
+
+        public void slokkvaATokkum()//slekkur a ollum tokkunum og textaboxum nema byrja dag
         {
             endaDag.Enabled = false;
             klaraVidskipti.Enabled = false;
             byrjaVidskipti.Enabled = false;
             slokkvaASolu();
         }
-        public void kveikjaATokkum()
+        public void kveikjaATokkum()//kveikir a ollum tokkum
         {
             endaDag.Enabled = true;
             klaraVidskipti.Enabled = true;
@@ -80,14 +82,14 @@ namespace Lokaverkefni_2016_PG
         {
             label_virktNumer.Text = (rand.Next(1, 101)).ToString();
         }
-        private void kveikjaASolu()
+        private void kveikjaASolu()//kveikir a hlutum sem tharf til ad selja
         {
             vara.Enabled = true;
             magnMinus.Enabled = true;
             magnPlus.Enabled = true;
             kvittun.Enabled = true;
         }
-        private void slokkvaASolu()
+        private void slokkvaASolu()//slekkur a ollum hlutum sem tharf til ad selja
         {
             vara.Enabled = false;
             magnMinus.Enabled = false;
@@ -101,6 +103,7 @@ namespace Lokaverkefni_2016_PG
             {
                 thing.Add(soluvara[i].Magn);
             }
+            //setur textaboxid sem magnid a vorunni
             label_snKarmellu.Text = thing[0].ToString();
             label_snSukkuladi.Text = thing[1].ToString();
             label_snGlassur.Text = thing[2].ToString();
@@ -128,7 +131,7 @@ namespace Lokaverkefni_2016_PG
             }
         }
 
-        private void byrjaDag_Click(object sender, EventArgs e)//stillir magn a ollum vorum
+        private void byrjaDag_Click(object sender, EventArgs e)//stillir magn a ollum vorum, stillir takka og textabox
         {
             for (int i = 0; i < soluvara.Count; i++)
             {
@@ -142,23 +145,24 @@ namespace Lokaverkefni_2016_PG
             byrjaDag.Enabled = false;
         }
         
-        private void byrjaVidskipti_Click(object sender, EventArgs e)
+        private void byrjaVidskipti_Click(object sender, EventArgs e)//byrjar vidskipti
         {
             int activeNum = Convert.ToInt32(label_virktNumer.Text);
-            int userNum = rand.Next(activeNum + 5, activeNum + 20);
+            int userNum = rand.Next(activeNum + 5, activeNum + 20);//velur numer fyrir vidskiptavin
 
 
-            while (activeNum != userNum)
+            while (activeNum != userNum)//bidin eftir ad numer vidskiptavinarins verdur virkt
             {
                 int sleeptime = rand.Next(100, 600);
                 System.Threading.Thread.Sleep(sleeptime);
                 activeNum++;
                 label_vidskiptavinurNumer.Text = userNum.ToString();
                 label_virktNumer.Text = activeNum.ToString();
-                Application.DoEvents();
+                Application.DoEvents();//updatear textabox
             }
             kveikjaASolu();
             kveikjaATokkum();
+            //stillir takka
             byrjaVidskipti.Enabled = false;
             klaraVidskipti.Enabled = true;
             byrjaDag.Enabled = false;
@@ -175,20 +179,21 @@ namespace Lokaverkefni_2016_PG
             }
             s += inkomaDags.ToString();
             MessageBox.Show(s);
+            //setur magnid a ollu sem 0
             for (int i = 0; i < soluvara.Count; i++)
             {
                 soluvara[i].Magn = 0;
             }
+            //loka stillingar fyrir lok dags
             stillaMagn();
             slokkvaATokkum();
             byrjaDag.Enabled = true;
             endaDag.Enabled = false;
-            //stilla heildarmagn a ollu sem 0
         }
 
         private void klaraVidskipti_Click(object sender, EventArgs e)//Fer gegnum lista af ollum vorum sem vidskiptavinurinn er ad kaupa og prentar verd og kvittun
         {
-            int heild = 0;
+            int heild = 0;//upphaedin sem vidskiptavinurinn er ad kaupa fyrir
             
             for (int i = 0; i < soluvara.Count; i++)
             {
@@ -214,7 +219,7 @@ namespace Lokaverkefni_2016_PG
             klaraVidskipti.Enabled = false;
         }
 
-        private void magnMinus_Click(object sender, EventArgs e)
+        private void magnMinus_Click(object sender, EventArgs e)//laekkar magnid a vorunni sem er valin
         {
             string s = vara.Text;
 
@@ -231,7 +236,7 @@ namespace Lokaverkefni_2016_PG
             skrifa();
         }
 
-        private void magnPlus_Click(object sender, EventArgs e)
+        private void magnPlus_Click(object sender, EventArgs e)//haekkar magnid a vorunni sem er valin
         {
             string s = vara.Text;
 
